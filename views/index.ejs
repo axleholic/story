@@ -1,0 +1,23 @@
+<%- include("partials/header.ejs")  %>
+
+
+<section>
+    <h2>Today's Task</h2>
+    <h2><%= locals.dateToday %></h2>
+    <ul id="todayList">
+        <li><input type="checkbox"><span>some text</span></li>
+        <li><input type="checkbox"><span>some text</span></li>
+        <li id="checked"><input type="checkbox"><span>some text</span></li>
+        <li><input type="checkbox"><span>some text</span></li>
+        <li><input type="checkbox"><span>some text</span></li>
+        <%for(let i=0; i<newItems.length ; i++){%>
+            <li><%= newItems[i] %></li>
+            <% }%>
+        
+
+        <form action="/submit" method="POST">
+            <input type="text" name="newItem" autocomplete="off" required>
+            <button type="submit">Add</button>
+        </form>
+    </ul>
+</section>
